@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>user detail</title>
+<link rel="stylesheet" href="../css/details.css">
+<link rel="stylesheet" href="../css/events.css">
+<link rel="stylesheet" href="../css/home.css">
+<link rel="stylesheet" href="../css/profile.css">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script type="text/javascript" src="js/profile.js"></script>
+<script src="../js/events.js" defer></script>
+<script src="../js/users.js"></script>
+
+</head>
+<body onload="getProfile()">
+
+<div class="menu">
+
+  <div class="menu">
+
+    <header>
+        <div class="topnav">
+            <div class="menuRoom">
+                <div class="leftRoom">
+                    <div class="headerIcon">
+                        <a class="iconHome" href="/">
+                            <img src="../icons/logo.png" width="60" height="60" alt="" />
+                        </a>
+                    </div>
+                    <a href="/">HOME</a>
+                    <a href="/events">EVENTS</a>
+                </div>
+                <div class="rightRoom">
+                    <a href="#">
+                        <form action="">
+                            Search Info: <input type="text" name="firstname">
+                            <input type="submit" value="Submit">
+                        </form>
+                    </a>
+                    <a href="/profile" id="nickname">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+  </div>
+</div>
+
+<div id="content2">
+  <br>
+  <div>
+   <label id = "acc">Icon</label>
+    <br>
+    <br>
+    <div id="icon">
+     <img src="../icons/defaultIcon.jpg" alt="">
+    </div>
+    <br>
+    <label id = "acc">User ID:</label>
+    <p id = "acc">
+    <input id="userid">
+    </p>
+  </div>
+  <div>
+    <label id = "acc">User Group:</label>
+    <p>
+    <p style= "display:inline-block; color:red" id = "usergroup"></p>
+
+  </div>
+  <div>
+    <label id = "acc">nickname( 4 to 8 characters ):</label>
+    <p id = "acc">
+    <input required minlength="4" maxlength="8" size="10" id="nicknameText">
+    </p>
+  </div>
+    <div>
+      <label id = "akk">Personal Description:</label>
+      <p id = "acc">
+      <textarea type="text" placeholder=" your description" rows="5" style= "position: relative;">
+      </textarea>
+      </p>
+  </div>
+  <div>
+    <label id = "acc">E-mail:</label>
+    <p id = "acc">
+    <input id="E_mail">
+    </p>
+  </div>
+  <br>
+  <button type="Save" id= "kkl">Save</button>
+
+  </div>
+  <div id="content2" style ="position: relative;">
+  <div>
+    <h2>Calendar To Do List</h1>
+    <hr>
+    <div placeholder=" Nothing here now">
+    </div>
+  <input type="date" value="2022-05-13" class="csa">
+  <input rows="4" cols="60" type="text" class="add" placeholder="EVENT"style ="position: relative;">
+  <button class="new" onclick="posts1()">Add</button>
+
+
+  <hr>
+    <div id="adds">
+    </div>
+
+
+
+
+
+  </div>
+
+
+  </div>
+</body>
+</html>

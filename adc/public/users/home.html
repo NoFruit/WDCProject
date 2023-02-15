@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Find my event</title>
+    <link rel="stylesheet" href="../css/details.css">
+    <link rel="stylesheet" href="../css/events.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="https://cdn.staticfile.org/vue/2.6.14/vue.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/events.js"></script>
+    <script src="../js/users.js"></script>
+</head>
+
+<body onload="getNickname()">
+    <div class="menu">
+
+        <header>
+            <div class="topnav">
+                <div class="menuRoom">
+                    <div class="leftRoom">
+                        <div class="headerIcon">
+                            <a class="iconHome" href="/">
+                                <img src="../icons/logo.png" width="60" height="60" alt="" />
+                            </a>
+                        </div>
+                        <a href="/">HOME</a>
+                        <a href="/events">EVENTS</a>
+                    </div>
+                    <div class="rightRoom">
+                        <a href="#">
+                            <form action="">
+                                Search Info: <input type="text" name="firstname">
+                                <input type="submit" value="Submit">
+                            </form>
+                        </a>
+                        <a href="/profile" id="nickname">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div id="container">
+        <a id="photo">
+            <a href="details"><img src="../icons\super start concert.png"></a>
+            <a href="#"><img src="../icons\badminton.jpg"></a>
+            <a href="#"></a><img src="../icons\musicfestival.jpg"></a>
+    </div>
+    <hr>
+    <section class="wrapper style alt">
+        <div class="inner">
+            <div class="spotlight">
+                <div class="image">
+                    <img src="../icons\super start concert.png" alt="event picture here" />
+                </div>
+                <div class="content">
+                    <h3>Super star concert</h3>
+                    <p>This performance mainly popularized the songs loved by all fans. Each song seems to be confessing to each other.</p>
+                    <ul class="actions">
+                        <li><a href="details.html" class="button alt">Details</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="spotlight">
+                <div class="image">
+                    <img src="../icons\badminton.jpg" alt="event picture here" />
+                </div>
+                <div class="content">
+                    <h3>Badminton Match</h3>
+                    <p>A badminton tournament was held on Thursday afternoon.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button alt">Details</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="spotlight">
+                <div class="image">
+                    <img src="../icons\musicfestival.jpg" alt="event picture here" />
+                </div>
+                <div class="content">
+                    <h3>Music Festival</h3>
+                    <p>A rock music festival was held on May 20 at the First Sports Center.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button alt">Details</a></li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="actions special">
+                <li><a href="/events" class="button alt">View more events</a></li>
+            </ul>
+        </div>
+    </section>
+    <hr>
+    <div class="footer">
+        <img src="../icons/logo.png" width="40" height="40" />
+        <a href="mailto:xxxx@mail.edu">Email: xxxx@mail.edu</a>
+    </div>
+</body>
+
+</html>

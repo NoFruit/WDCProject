@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity management platform</title>
+<link rel="stylesheet" href="../static/layui.v2/css/layui.css" />
+<link rel="stylesheet" href="../static/calendar/stylesheets/simple-calendar.css">
+
+<script src="../static/jquery/jquery.v1.11.3.min.js"></script>
+<script src="../static/layui.v2/layui.js"></script>
+<script src="../static/calendar/javascripts/simple-calendar.js"></script>
+<script src="../static/moment.js"></script>
+    <style>
+        html,
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /* 校正layui的form-item的布局方式 */
+        .layui-form-item {
+            display: flex;
+
+        }
+
+        .layui-form-item .layui-form-label {
+            padding: 0px;
+            margin-right: 9px;
+            float: unset;
+            line-height: unset;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+        }
+
+        .layui-form-item .layui-input-block {
+            flex: 1;
+            margin-left: 0px;
+        }
+
+        .layui-layer-content {
+            overflow: visible !important;
+        }
+    </style>
+</head>
+
+<body>
+<div class="login">
+    <div class="layui-panel login-panel">
+        <div style="padding: 30px;">
+            <div>
+                <h1 style="text-align: center;">Regist</h1>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <form class="layui-form" method="post" action="/regist">
+                    <div class="layui-form-item" style="margin-bottom: 30px;">
+                        <label class="layui-form-label" style="width: 60px;">Account</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="account" required lay-verify="required" placeholder="Please enter" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="margin-bottom: 30px;">
+                        <label class="layui-form-label" style="width: 60px;">Name</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="nickname" required lay-verify="required" placeholder="Please enter" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="margin-bottom: 30px;">
+                        <label class="layui-form-label" style="width: 60px;">Email</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="E_mail" required lay-verify="required|email" placeholder="Please enter" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item" style="margin-bottom: 30px;">
+                        <label class="layui-form-label" style="width: 60px;">Password</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="password" required lay-verify="required" placeholder="Please enter" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="width: 60px;">Confirm</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="confirm" required lay-verify="required" placeholder="Please enter" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div style="text-align: center;margin-top:30px;">
+                        <button type="submit" lay-submit lay-filter="regist_ok" class="layui-btn layui-btn-normal">Submit</button>
+                        <a href="login.html" class="layui-btn layui-btn-primary">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['form', 'layer'], function() {
+        var { form } = layui;
+
+        // 提交注册 回调标记 表示是否注册成功
+        var regist = '{{regist}}'
+
+        form.on('submit(regist_ok)', function(data) {
+            var data = data.field;
+            if (data.password != data.confirm) {
+                layer.msg('The two passwords are inconsistent', { icon: 2 })
+                return false;
+            }
+        });
+        if (regist == 'ok') {
+            layer.alert('Pass.', {
+                icon: 1,
+                yes() {
+                    location.href = "/admin/login"
+                }
+            })
+        }
+    })
+</script>
+<style>
+    .login {
+        height: 100vh;
+        background-image: url('/static/images/OIP-C.jpg');
+        background-size: 100% 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-panel {
+        width: 420px;
+    }
+</style>
+
+
+
+</body>
+
+</html>

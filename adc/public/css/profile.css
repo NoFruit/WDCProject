@@ -1,0 +1,37 @@
+#icon{
+    width: 100px;
+    height: 100px;
+    border: 1px solid balck;
+    border-radius: 100%;
+    overflow: hidden;
+
+}
+img {
+    max-height: 100%;
+
+}
+#content2{
+  border-radius: 8px;
+  border: 3px solid GREY;
+  background-color:white;
+
+}
+#acc{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+   font-weight: bold;
+}
+#kkl{
+   background:green;
+   color:white;
+
+}
+#akk{
+
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+   font-weight: bold;
+}

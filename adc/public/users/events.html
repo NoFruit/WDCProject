@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Find Events</title>
+
+    <link rel="stylesheet" href="../css/details.css">
+    <link rel="stylesheet" href="../css/events.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/profile.css">
+
+    <script src="https://cdn.staticfile.org/vue/2.6.14/vue.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/users.js"></script>
+    <script src="../js/events.js"></script>
+</head>
+
+<body onload="getNickname()">
+    <div id="mainDiv">
+        <div class="menu">
+
+            <header>
+                <div class="topnav">
+                    <div class="menuRoom">
+                        <div class="leftRoom">
+                            <div class="headerIcon">
+                                <a class="iconHome" href="/">
+                                    <img src="../icons/logo.png" width="60" height="60" alt="" />
+                                </a>
+                            </div>
+                            <a href="/">HOME</a>
+                            <a href="/events">EVENTS</a>
+                        </div>
+                        <div class="rightRoom">
+                            <a href="#">
+                                <form action="">
+                                    Search Info: <input type="text" name="firstname">
+                                    <input type="submit" value="Submit">
+                                </form>
+                            </a>
+                            <a href="/profile" id="nickname">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="mainBody">
+            <main class="mainPart">
+                <div id="mainDiv" class="mainDiv">
+                    <div class="fixFunctionArea">
+                        <h2 id="filterTitle">Events</h2>
+                        <div id="functionArea" class="functionArea">
+                            <div id="filtering" class="filtering">
+                                <table class="table eventsFilter">
+                                    <tbody>
+                                        <tr>
+                                            <th id="filterHeader">Filter</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Category:</th>
+                                            <td>
+                                                <div class="checkBoxWrapper">
+                                                    <div class="selectAll">
+                                                        <input type="button" @click="selectAllCate" value="Select All">
+                                                    </div>
+                                                    <div class="selectAll">
+                                                        <input type="button" @click="clearAllCate" value="Clear All">
+                                                    </div>
+                                                    <template v-for="(item, index) in allCategories">
+                                                        <div :class=" { 'checkEnabled': checkedStyle[0][index] } ">
+                                                            <label>
+                                                                <input type="checkbox" :value="item.value" :id="item.value" v-model="categories" @change="filtAll();checkedStyle[0][index] = !checkedStyle[0][index]">
+                                                                <span :for="item.value">${ item.value }</span>
+                                                            </label>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Location:</th>
+                                            <td>
+                                                <div class="checkBoxWrapper">
+                                                    <div class="selectAll">
+                                                        <input type="button" @click="selectAllLoca" value="Select All">
+                                                    </div>
+                                                    <div class="selectAll">
+                                                        <input type="button" @click="clearAllLoca" value="Clear All">
+                                                    </div>
+                                                    <template v-for="(item, index) in allLocations">
+                                                        <div :class=" { 'checkEnabled': checkedStyle[1][index] } ">
+                                                            <label>
+                                                                <input type="checkbox" :value="item.value" :id="item.value" v-model="locations" @change="filtAll();checkedStyle[1][index] = !checkedStyle[1][index]">
+                                                                <span :for="item.value">${ item.value }</span>
+                                                            </label>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Time:</th>
+                                            <td>
+                                                <div class="radioWrapper">
+                                                    <template v-for="(item, index) in allTimes">
+                                                        <div :class=" { 'checkEnabled': radioStyle[index] } ">
+                                                            <label>
+                                                                <input type="radio" :value="item.value" :id="item.value" v-model="times" @change="filtAll();radioStyle=[0,0,0,0,0,0,0];radioStyle[index] = !radioStyle[index]">
+                                                                <span :for="item.value">${ item.label }</span>
+                                                            </label>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <div class="tableSplit">
+                                                    </divclass>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Sorted By:</th>
+                                            <td>
+                                                <div class="sorted">
+                                                    <div>
+                                                        <label>
+                                                            <input type="radio" name="sort" checked>
+                                                            <span>Start Soon</span>
+                                                        </label>
+                                                    </div>
+                                                    <div>
+                                                        <label>
+                                                            <!-- not yet achieved because no posted data from users -->
+                                                            <!-- but it have almost same code with 'start soon' sort -->
+                                                            <input type="radio" name="sort">
+                                                            <span>New Posted</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="objectRoom" class="objectRoom">
+                        <div id="objectsArea" class="objectsArea">
+                            <div class="eventsObject" v-for="hide in hidden">
+                                <a href="../details">
+                                    <!--too less detail page, so just let this page as the example-->
+                                    <div>
+                                        <div class="towRoom">
+                                            <div class="imgRoom">
+                                                <div>
+                                                    <picture>
+                                                        <img :src="findImage(hide)" width="222px" height="125px" alt="default img" loading="lazy" class="leftPreview">
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                            <div class="textRoom">
+                                                <div class="timeRoom">
+                                                    <div class="timeBox">
+                                                        <time class="time" :datetime="new Date(hide.time)">${ new Date(hide.time) }</time>
+                                                    </div>
+                                                </div>
+                                                <p class="eventsTitle">${ hide.title }</p>
+                                                <div class="detailRoom">
+                                                    <div class="categorys">${ hide.category }</div>
+                                                    <div class="locations">${ hide.location }</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="footer">
+            <img src="../icons/logo.png" width="40" height="40" />
+            <a href="mailto:xxxx@mail.edu">Email: xxxx@mail.edu</a>
+        </div>
+
+    </div>
+
+    <script src="../js/events.js"></script>
+</body>
+
+</html>

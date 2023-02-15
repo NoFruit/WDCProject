@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity management platform</title>
+
+<link rel="stylesheet" href="../static/layui.v2/css/layui.css" />
+<link rel="stylesheet" href="../static/calendar/stylesheets/simple-calendar.css">
+
+<script src="../static/jquery/jquery.v1.11.3.min.js"></script>
+<script src="../static/layui.v2/layui.js"></script>
+<script src="../static/calendar/javascripts/simple-calendar.js"></script>
+<script src="../static/moment.js"></script>
+
+
+    <style>
+        html,
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /* 校正layui的form-item的布局方式 */
+        .layui-form-item {
+            display: flex;
+
+        }
+
+        .layui-form-item .layui-form-label {
+            padding: 0px;
+            margin-right: 9px;
+            float: unset;
+            line-height: unset;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+        }
+
+        .layui-form-item .layui-input-block {
+            flex: 1;
+            margin-left: 0px;
+        }
+
+        .layui-layer-content {
+            overflow: visible !important;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="login">
+    <div class="layui-panel login-panel">
+        <div style="padding: 30px;">
+            <div>
+                <h1 style="text-align: center;">Login</h1>
+            </div>
+            <!--
+            {% if error == 1 %}
+            <div style="color:red;text-align: center;margin-top: 30px;">
+                {{message}}
+            </div>
+            {% endif %}
+            -->
+            <div style="margin-top: 30px;">
+                <form class="layui-form" method="post" action="/login">
+                    <div class="layui-form-item" style="margin-bottom: 30px;">
+                        <label class="layui-form-label" style="width: 60px;">Account</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="account" required lay-verify="required" placeholder="Please enter" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="width: 60px;">Password</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="password" required lay-verify="required" placeholder="Please enter" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div style="text-align: center;margin-top:30px;">
+                        <button type="submit" class="layui-btn layui-btn-normal">Log in</button>
+                        <a href="/regist.html" class="layui-btn layui-btn-primary">Regist</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .login {
+        height: 100vh;
+        background-image: url('/static/images/default.jpg');
+        background-size: 100% 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-panel {
+        width: 420px;
+    }
+</style>
+</body>
+
+</html>

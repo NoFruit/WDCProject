@@ -1,0 +1,241 @@
+#filterHeader{
+    text-align: left;
+}
+
+#functionArea{
+    border-bottom: rgb(33 33 33) solid 10px;
+}
+
+#filterTitle{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 27px;
+    border-bottom: rgb(15, 82, 102) solid 3px;
+    width: 4rem;
+}
+
+main.mainPart{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.menu{
+    height: 60px;
+    width: 100%;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: rgb(230 230 230);
+    flex-direction: column;
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    min-width: 904px;
+}
+
+
+.mainDiv{
+    max-width: 993px;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-width: 921px;
+}
+
+
+.fixFunctionArea{
+    position: sticky;
+    top: 60px;
+    z-index: 10;
+    background-color: #ffffff;
+}
+
+
+.eventsFilter>tbody>tr>th {
+    width: 60px;
+    float: left;
+    margin-right: 30px;
+    text-align: left;
+    white-space: pre;
+}
+
+.tableSplit{
+    display: inline-block;
+    padding: 10px;
+    border-bottom: black solid 1px;
+    width: 100%;
+}
+
+.checkBoxWrapper {
+    display: inline-block;
+}
+
+.buttonWrapper, .checkBoxWrapper>div, .radioWrapper>div, .sorted>div{
+    display: inline-block;
+    border-bottom: #d1d1d1 solid 2px;
+    border-radius: 4px;
+    width: auto;
+    text-align: center;
+    overflow: auto;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.checkBoxWrapper .selectAll>input{
+    display: inline-block;
+}
+
+.radioWrapper {
+    display: inline-block;
+}
+
+.checkBoxWrapper>div>label>input, .radioWrapper>div>label>input, .sorted>div>label>input{
+    position: absolute;
+    top: -20px;
+    display: none;
+}
+
+.checkEnabled{
+    border-bottom: #333 solid 3px !important;
+    border-radius: 8px !important;
+}
+
+.sorted{
+    display:inline
+}
+
+.objectRoom{
+    display: flex;
+    padding-top: 3rem;
+}
+
+.objectsArea{
+    width: 650px;
+}
+
+.objectsArea a{
+    text-decoration:none;
+}
+
+.eventsObject{
+    padding: 8px;
+    padding-bottom: 0px;
+    border-bottom: rgb(230, 230, 230) solid 1px;
+}
+
+.events>a{
+    width: 100%
+}
+
+.eventsObject>a>div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.towRoom{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    flex:1 1 0%;
+}
+
+.imgRoom{
+    width: 175px;
+    margin-left: 0;
+    margin-right: 0.75rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+}
+
+.imgRoom>div{
+    width: 100%;
+    height: 116px;
+    overflow: hidden;
+    position: relative;
+}
+
+.leftPreview{
+    object-position: center;
+    object-fit: contain;
+    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.textRoom{
+    width: 100%;
+    overflow: hidden;
+}
+
+.timeRoom{
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+
+.timeBox{
+    color: rgb(135 116 87);
+    letter-spacing: -.025em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-bottom: .25rem;
+    padding-top: .25rem;
+    flex-direction: column;
+    display: flex;
+}
+
+.eventsTitle{
+    overflow: hidden;
+    display: inline-block;
+    color: rgb(33 33 33);
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding-top: 0;
+    padding-bottom: .25rem;
+    margin: 0;
+}
+
+.detailRoom{
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+}
+
+.categorys{
+    margin-bottom: 1rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    width: 35%;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    color:#333
+}
+
+.locations{
+    margin-bottom: 1rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    width: 25%;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    color:#273163;
+    font-size: 5px;
+}
+
+*:not(input, textarea), :after, :before {
+    box-sizing: border-box;
+    border: 0 solid;
+}
